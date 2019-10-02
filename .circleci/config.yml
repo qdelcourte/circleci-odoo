@@ -1,0 +1,28 @@
+version: 2
+jobs:
+ build_and_test:
+   docker:
+     - image: circleci/python:latest
+   steps:
+     - checkout
+     - setup_remote_docker
+     - run:
+        name: Start container
+        command: |
+          docker-compose up -d --build
+          docker-compose ps
+          docker-compose exec -T db createdb -U odoo db_test
+     - run:
+        name: Run tests
+        command: |
+          echo "Start test...."
+          mkdir -p ./tmp/test-results
+          docker-compose run web run_test.sh |& tee ./tmp/test-results/output.txt
+          echo "Test are done"
+     - store_test_results:
+        path: ./tmp/test-results
+workflows:
+ version: 2
+ build_and_test:
+   jobs:
+     - build_and_test

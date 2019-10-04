@@ -11,6 +11,7 @@ services:
       - mail
     ports:
       - "8069:8069"
+    command: ["./wait-for-it/wait-for-it.sh", "db:5432", "--", "echo", "DB is up!"]
       
   db:
     container_name: db

@@ -1,0 +1,3 @@
+[submodule "extra-addons/product-attribute"]
+	path = extra-addons/product-attribute
+	url = https://github.com/OCA/product-attribute.git

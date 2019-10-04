@@ -7,9 +7,10 @@ jobs:
      - checkout
      - setup_remote_docker
      - run:
-        name: Add OCA module
+        name: Pull submodule
         command: |
-          git clone https://github.com/OCA/product-attribute.git
+          git submodule init
+          git submodule update
      - run:
         name: Start container
         command: |

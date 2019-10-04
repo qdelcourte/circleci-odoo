@@ -4,9 +4,10 @@ USER root
 # Configuration
 COPY ./config /etc/odoo
 
-# Addons
+# Customs Addons
 COPY ./addons /mnt/extra-addons/my_addons
-COPY ./product-attribute /mnt/extra-addons/product-attribute
+# Extra addons
+COPY ./extra-addons /mnt/extra-addons
 
 COPY ./run_test.sh /usr/local/bin/run_test.sh
 RUN ["chmod", "+x", "/usr/local/bin/run_test.sh"]

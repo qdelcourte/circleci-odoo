@@ -1,1 +1,1 @@
-from . import test_deliver
+from . import test_addon

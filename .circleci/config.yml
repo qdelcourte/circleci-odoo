@@ -16,10 +16,10 @@ jobs:
         command: |
           docker-compose up -d --build
           docker-compose ps
-          docker-compose exec -T db createdb -U odoo db_test
      - run:
         name: Run tests
         command: |
+          docker-compose exec -T db createdb -U odoo db_test
           echo "Start test...."
           mkdir -p ./tmp/test-results
           docker-compose run web run_test.sh |& tee ./tmp/test-results/output.txt

@@ -16,6 +16,7 @@ jobs:
         command: |
           docker-compose up -d --build
           docker-compose ps
+          sleep 10
      - run:
         name: Run tests
         command: |

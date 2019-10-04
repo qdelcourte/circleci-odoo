@@ -10,9 +10,5 @@ COPY ./run_test.sh /usr/local/bin/run_test.sh
 
 RUN ["chmod", "+x", "/usr/local/bin/run_test.sh"]
 
-# thrid party addons
-#ENV THIRD_PARTY_ADDONS /usr/lib/python3/dist-packages/odoo/addons
-#RUN install_third_party_addons.sh https://github.com/OCA/server-tools.git ${ODOO_VERSION} ${THIRD_PARTY_ADDONS}
-
 EXPOSE 8069 8071 8090
 USER odoo

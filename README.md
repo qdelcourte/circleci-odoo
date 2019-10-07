@@ -2,4 +2,8 @@
 
 # circleci-odoo
 
-Example of CircleCI configuration with Odoo 12 and docker
+Example of CircleCI configuration with Odoo and docker
+
+| CircleCI | Odoo | |
+| -------- | ---- | ------------------ |
+|    v2    | v12  | :heavy_check_mark: |

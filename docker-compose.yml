@@ -1,34 +1,21 @@
-version: "3.5"
+version: "3.2"
 
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: app
+    image: odoo:14.0
     depends_on:
       - db
-      - mail
     ports:
       - "8069:8069"
-    command: ["./wait-for-it/wait-for-it.sh", "db:5432", "--", "echo", "DB is up!"]
-      
+    volumes:
+      - ./config:/etc/odoo
+      - ./addons:/mnt/addons
+      - ./extra-addons:/mnt/extra-addons
   db:
-    container_name: db
-    image: postgres:9.6
+    image: postgres:12.1
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
-
-  mail:
-    container_name: mail
-    image: schickling/mailcatcher
-    ports:
-      - "1080:1080"
-
-networks:
-  default:
-    name: odoo_network

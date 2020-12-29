@@ -5,4 +5,4 @@ init:
 
 
 test:
-	@docker-compose exec web odoo -i test_addon --stop-after-init --test-enable --http-port=8090 --config /etc/odoo-test.conf
+	@docker-compose exec web odoo -i test_addon --stop-after-init --test-enable --http-port=8090 --config /etc/odoo/odoo-test.conf
